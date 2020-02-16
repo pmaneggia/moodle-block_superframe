@@ -89,7 +89,7 @@ class block_superframe extends block_base {
         $this->content->text .= get_string('message', 'block_superframe');   
         $this->content->text .= '<br>'; 
         $content = get_string('viewlink', 'block_superframe');
-        $this->content->text .= html_writer::tag('a', $content, array('href' => $CFG->wwwroot.'/blocks/superframe/view.php')); 
+        //$this->content->text .= html_writer::tag('a', $content, array('href' => $CFG->wwwroot.'/blocks/superframe/view.php')); 
 
         // Add the block id to the Moodle URL for the view page.
         $blockid = $this->instance->id;
