@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require('../../config.php');
+$blockid = required_param('blockid', PARAM_INT); // We will pick up the blockid in the view.php page:
+
 // to make the choice of layout in the setting effective, first load the settings...:
 $config = get_config('block_superframe');
 
