@@ -17,7 +17,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-//$settings->add(new admin_setting_heading(get_string('settings_heading', 'block_superframe')));
+// I do not manage to make the heading work
+//$settings->add(new admin_setting_heading(get_string('settings_heading', 'block_superframe'),'',''));
 $get_url = get_string('url', 'block_superframe');
 $get_url_details = get_string('url_details', 'block_superframe');
 $default = 'https://quizlet.com/132695231/scatter/embed';

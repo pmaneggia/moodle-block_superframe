@@ -50,3 +50,10 @@ $string['iframe_width'] = 'width';
 $string['iframe_width_details'] = 'width of the iframe';
 $string['pagelayout'] = 'Page layout';
 $string['pagelayout_details'] = 'choose a layout';
+
+// size
+$string['custom'] = 'custom';
+$string['small'] = 'small';
+$string['medium'] = 'medium';
+$string['large'] = 'large';
+$string['size'] = 'size';

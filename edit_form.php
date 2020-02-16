@@ -22,10 +22,43 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL')|| die();
+
+// in edit_form.php in blocks I found this version:
+// if (!defined('MOODLE_INTERNAL')) {
+//     die('Direct access to this script is forbidden.');    ///  It must be included from a Moodle page
+// }
+
  //moodleform is defined in formslib.php
-require_once("$CFG->libdir/formslib.php");
+require_once($CFG->libdir . '/formslib.php');
+require_once($CFG->libdir . '/blocklib.php');
+
 
 class block_superframe_edit_form extends block_edit_form {
+
+    protected function specific_definition($mform) { //the default block editform is passed in to be supplemented
+        // section header title according to language file.
+        $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
+
+        // URL element - use admin setting for default
+        $config = get_config('block_superframe');
+        $mform->addElement('text', 'config_url', get_string('url', 'block_superframe'));
+        $mform->setDefault('config_url', $config->url);
+        $mform->setType('config_url', PARAM_URL);
+
+        // Rather than width and height, add a size element.
+        // Custom will be the default setting in the admin settings.
+        $sizes = array(
+            'custom' => get_string('custom', 'block_superframe'),
+            'small' => get_string('small', 'block_superframe'),
+            'medium' => get_string('medium', 'block_superframe'),
+            'large' => get_string('large', 'block_superframe'));
+        $mform->addElement('select', 'config_size',
+                get_string('size', 'block_superframe'), $sizes);
+        $mform->setDefault('config_size', 'custom');
+    }
+
+    
 
 
 }
