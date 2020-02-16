@@ -14,22 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * Version details
- *
- * @package   block_superframe
- * @copyright  Daniel Neis <danielneis@gmail.com>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 
-/**
- * Modified for use in MoodleBites for Developers Level 1
- * by Richard Jones & Justin Hunt.
- *
- * See: https://www.moodlebites.com/mod/page/view.php?id=24546
- */
-defined('MOODLE_INTERNAL') || die();
+define(MOODLE_INTERNAL) || die();
 
-$plugin->version   = 2020021604; // Minimal block
-$plugin->requires  = 2017111300; // Minimum Moodle 3.4.
-$plugin->component = 'block_superframe';
+$settings->add(new admin_setting_heading(get_string('settings_heading', 'block_superframe')));
+$get_url = get_string('url', 'superframe');
+$get_url_details = get_string('url_details', 'block_superframe');
+$get_url_default = 'https://quizlet.com/132695231/scatter/embed';
+$settings->add(new admin_setting_configtext('block_superframe/url', $get_url, $get_url_details, $default, PARAM_TEXT));

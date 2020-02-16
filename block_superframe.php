@@ -58,6 +58,13 @@ class block_superframe extends block_base {
     }
 
     /**
+     * Allow block configuration.
+     */
+    function has_config() {
+        return true;
+    }
+
+    /**
      * Add some text content to our block.
      */
     function get_content() {

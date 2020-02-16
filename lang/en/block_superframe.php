@@ -39,3 +39,7 @@ $string['viewlink'] = 'Here to my page';
 // Capability strings
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
+
+$string['settings_heading'] = 'Super frame settings'; //get_string('pluginname','block_superframe').' settings';;
+$string['url'] = 'url';
+$string['url_details'] = 'choose the url you want to embed';

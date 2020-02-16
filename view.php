@@ -33,6 +33,8 @@ require_login();
 
 // Start output to browser.
 echo $OUTPUT->header();
+
+
 echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
 // Dummy content.
 echo '<br>' . fullname($USER) . '<br>';
