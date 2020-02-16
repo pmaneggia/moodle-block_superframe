@@ -15,10 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 
-define(MOODLE_INTERNAL) || die();
+defined('MOODLE_INTERNAL') || die();
 
-$settings->add(new admin_setting_heading(get_string('settings_heading', 'block_superframe')));
-$get_url = get_string('url', 'superframe');
+//$settings->add(new admin_setting_heading(get_string('settings_heading', 'block_superframe')));
+$get_url = get_string('url', 'block_superframe');
 $get_url_details = get_string('url_details', 'block_superframe');
-$get_url_default = 'https://quizlet.com/132695231/scatter/embed';
+$default = 'https://quizlet.com/132695231/scatter/embed';
 $settings->add(new admin_setting_configtext('block_superframe/url', $get_url, $get_url_details, $default, PARAM_TEXT));
