@@ -22,11 +22,16 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require('../../config.php');
+// to make the choice of layout in the setting effective, first load the settings...:
+$config = get_config('block_superframe');
+
 $PAGE->set_course($COURSE); // what is this doing? what happens if I leave it out?
 $PAGE->set_url('/blocks/superframe/view.php'); // I want to do it with the new url...
+
 //$PAGE->set_url(new moodle_url('blocks/superframe/view.php'));
 $PAGE->set_heading($SITE->fullname); // what would that be, paola's moodle? Yes
-$PAGE->set_pagelayout('course'); // ok
+// to make the choice of layout in the setting effective, ... then use them:
+$PAGE->set_pagelayout($config->pagelayout);
 $PAGE->set_title(get_string('pluginname', 'block_superframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
 require_login();

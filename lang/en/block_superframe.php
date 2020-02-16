@@ -40,6 +40,13 @@ $string['viewlink'] = 'Here to my page';
 $string['superframe:addinstance'] = 'Add a new Super frame block';
 $string['superframe:myaddinstance'] = 'Add a new Super frame block to my moodle';
 
+// Settings strings
 $string['settings_heading'] = 'Super frame settings'; //get_string('pluginname','block_superframe').' settings';;
 $string['url'] = 'iframe url';
 $string['url_details'] = 'insert the url of the iframe you want to embed';
+$string['iframe_height'] = 'height';
+$string['iframe_height_details'] = 'height of the iframe';
+$string['iframe_width'] = 'width';
+$string['iframe_width_details'] = 'width of the iframe';
+$string['pagelayout'] = 'Page layout';
+$string['pagelayout_details'] = 'choose a layout';
