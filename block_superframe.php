@@ -92,10 +92,12 @@ class block_superframe extends block_base {
         //$this->content->text .= html_writer::tag('a', $content, array('href' => $CFG->wwwroot.'/blocks/superframe/view.php')); 
 
         // Add the block id to the Moodle URL for the view page.
-        $blockid = $this->instance->id;
-        $url = new moodle_url('/blocks/superframe/view.php', array('blockid' => $blockid));
-        $this->content->text .= '<p>' . html_writer::link($url, get_string('viewlink', 'block_superframe')) . '</p>';
-
+        $context = context_block::instance($this->instance->id);
+        if (has_capability('block/superframe:seeviewpage', $context)) {
+            $blockid = $this->instance->id;
+            $url = new moodle_url('/blocks/superframe/view.php', array('blockid' => $blockid));
+            $this->content->text .= '<p>' . html_writer::link($url, get_string('viewlink', 'block_superframe')) . '</p>';
+        }
 
         return $this->content;
     }

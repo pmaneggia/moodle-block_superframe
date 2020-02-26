@@ -31,13 +31,17 @@ $def_config = get_config('block_superframe');
 $PAGE->set_course($COURSE); // what is this doing? what happens if I leave it out?
 $PAGE->set_url('/blocks/superframe/view.php'); // I want to do it with the new url...
 
+// prevent guest users (actually any users without permission) to see the page
+require_login();
+$context = context_system::instance(); // require_capability needs a context
+require_capability('block/superframe:seeviewpage', $context);
+
 //$PAGE->set_url(new moodle_url('blocks/superframe/view.php'));
 $PAGE->set_heading($SITE->fullname); // what would that be, paola's moodle? Yes
 // to make the choice of layout in the setting effective, ... then use them:
 $PAGE->set_pagelayout($def_config->pagelayout);
 $PAGE->set_title(get_string('pluginname', 'block_superframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superframe'));
-require_login();
 
 // Get the instance configuration data from the database.
 // It's stored as a base 64 encoded serialized string.
@@ -75,7 +79,7 @@ switch ($config->size) {
         break;
 }
 
-
+/* going to improve code with renderer and mustache template, no call to $OUTPUT
 // Start output to browser.
 echo $OUTPUT->header();
 
@@ -85,7 +89,9 @@ echo $OUTPUT->heading(get_string('pluginname', 'block_superframe'), 5);
 echo '<br>' . fullname($USER) . '<br>';
 echo $OUTPUT->user_picture($USER);
 echo '<br>';
+*/
 
+/* going to improve code with renderer and mustache template, no call to $OUTPUT
 //$url = 'https://quizlet.com/132695231/scatter/embed';
 //$width = '600px';
 //$height = '400px';
@@ -94,7 +100,15 @@ $attributes = ['src' => $url,
                'height' => $height];
 echo html_writer::start_tag('iframe', $attributes);
 echo html_writer::end_tag('iframe');
+*/
 
+/* going to improve code with renderer and mustache template, no call to $OUTPUT
 //send footer out to browser
 echo $OUTPUT->footer();
-die();
+*/
+
+// added in Week 4 - Task 1 - working with renderers
+$renderer = $PAGE->get_renderer('block_superframe');
+$renderer->display_view_page($url, $width, $height);
+
+//die();

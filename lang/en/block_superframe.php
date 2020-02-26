@@ -57,3 +57,6 @@ $string['small'] = 'small';
 $string['medium'] = 'medium';
 $string['large'] = 'large';
 $string['size'] = 'size';
+
+// capabilities
+$string['superframe:seeviewpage'] = 'access the frame view page';
