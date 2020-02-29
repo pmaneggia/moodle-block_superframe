@@ -49,4 +49,16 @@ class block_superframe_renderer extends plugin_renderer_base {
          // Finish the page.
         echo $this->output->footer();
    }
+
+  function fetch_block_content($blockid) {
+    global $USER;
+    $data = new stdClass();
+    $data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
+    $data->message = get_string('message', 'block_superframe');
+    $data->url = new moodle_url('/blocks/superframe/view.php', [blockid => $blockid]);
+    $data->text = get_string('viewlink', 'block_superframe');
+    return $this->render_from_template('block_superframe/blockcontent', $data);
+    //if (has_capability('block/superframe:seeviewpage', $context)) {
+    //}
+   }
 }
