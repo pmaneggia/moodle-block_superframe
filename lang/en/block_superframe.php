@@ -60,3 +60,12 @@ $string['size'] = 'size';
 
 // capabilities
 $string['superframe:seeviewpage'] = 'access the frame view page';
+
+// data popup page
+$string['tablecaption'] = 'Block data';
+$string['blockid'] = 'id';
+$string['blockname'] ='block name';
+//using global strings 'course' and 'category' instead
+//$string['course'] = 'course short name';
+//$string['catname'] = 'category';
+$string['poptext'] = 'Get data';
