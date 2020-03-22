@@ -69,3 +69,4 @@ $string['blockname'] ='block name';
 //$string['course'] = 'course short name';
 //$string['catname'] = 'category';
 $string['poptext'] = 'Get data';
+$string['tabletext'] = 'Table editing';

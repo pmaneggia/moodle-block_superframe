@@ -55,11 +55,14 @@ class block_superframe_renderer extends plugin_renderer_base {
     $data = new stdClass();
     $data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
     $data->message = get_string('message', 'block_superframe');
-    $data->url = new moodle_url('/blocks/superframe/view.php', [blockid => $blockid]);
+    $data->url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid]);
     $data->text = get_string('viewlink', 'block_superframe');
     // Add a link to the popup page:
     $data->popurl = new moodle_url('/blocks/superframe/block_data.php');
     $data->poptext = get_string('poptext', 'block_superframe');
+    // Add a link to the tablemanager
+    $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
+    $data->tabletext = get_string('tabletext', 'block_superframe');
     // render
     return $this->render_from_template('block_superframe/blockcontent', $data);
     //if (has_capability('block/superframe:seeviewpage', $context)) {
