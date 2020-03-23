@@ -30,12 +30,17 @@
         "width": "600"
     }
 }}
+
 <div  class="container">
     <div class="jumbotron">
         <h5>{{heading}}</h5>
         <p>Welcome {{user}}</p>
         <p>Today is the {{#userdate}} {{date}}, {{#str}} strftimedate {{/str}} {{/userdate}}
         <br>And it is {{#userdate}} {{date}}, %I:%M {{/userdate}}</p>
+        {{> block_superframe/links}}
+    <iframe src="{{url}}" height="{{height}}" width="{{width}}">
+    </iframe>
+    <p><a href="{{{returnlink}}}">{{returntext}}</a></p>
         <iframe src="{{url}}" height="{{height}}" width="{{width}}">
         </iframe>
     </div>

@@ -56,7 +56,7 @@ $string['custom'] = 'custom';
 $string['small'] = 'small';
 $string['medium'] = 'medium';
 $string['large'] = 'large';
-$string['size'] = 'size';
+$string['size'] = 'Select a size for your iframe';
 
 // capabilities
 $string['superframe:seeviewpage'] = 'access the frame view page';
@@ -70,3 +70,6 @@ $string['blockname'] ='block name';
 //$string['catname'] = 'category';
 $string['poptext'] = 'Get data';
 $string['tabletext'] = 'Table editing';
+
+// Navigation API.
+$string['userlink'] = 'Installed blocks';
