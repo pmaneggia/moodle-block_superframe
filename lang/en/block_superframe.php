@@ -32,7 +32,8 @@
 
 // General
 $string['pluginname'] = 'Super frame';
-$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+//$string['welcomeuser'] = 'Welcome {$a->firstname} {$a->lastname}';
+$string['welcomeuser'] = 'Welcome {$a}';
 $string['message'] = 'Have a jolly good day!';
 $string['viewlink'] = 'Here to my page';
 
@@ -73,3 +74,5 @@ $string['tabletext'] = 'Table editing';
 
 // Navigation API.
 $string['userlink'] = 'Installed blocks';
+
+$string['about'] = 'Superframe with modal element, week 7';

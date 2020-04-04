@@ -17,6 +17,13 @@ require_login();
 $context = context_system::instance(); // require_capability needs a context
 require_capability('block/superframe:seeviewpage', $context);
 
+// Week 8, events
+// If we get here they have viewed the page.
+// Log the page viewed event.
+$event = \block_superframe\event\block_page_viewed::create(['context' => $PAGE->context]);
+$event->add_record_snapshot('course', $PAGE->course);
+$event->trigger();
+
 //$PAGE->set_url(new moodle_url('blocks/superframe/view.php'));
 $PAGE->set_heading($SITE->fullname); // what would that be, paola's moodle? Yes
 // to make the choice of layout in the setting effective, ... then use them:

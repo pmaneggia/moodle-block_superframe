@@ -30,6 +30,9 @@ class block_superframe_renderer extends plugin_renderer_base {
     function display_view_page($url, $width, $height, $courseid, $blockid) {
         global $USER;
         $data = new stdClass();
+        //added on week 7
+        $this->page->requires->js_call_amd('block_superframe/amd_modal', 'init');
+
 
         // Page heading and iframe data.
         $data->heading = get_string('pluginname', 'block_superframe');
@@ -39,6 +42,8 @@ class block_superframe_renderer extends plugin_renderer_base {
         $data->url = $url;
         $data->height = $height;
         $data->width = $width;
+           //week7
+        $data->modallinktext = get_string('about', 'block_superframe');
 
         // Text for the links and the size parameter. WEEK 6
         $strings = array();
@@ -72,7 +77,7 @@ class block_superframe_renderer extends plugin_renderer_base {
   function fetch_block_content($blockid) {
     global $USER;
     $data = new stdClass();
-    $data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
+    //$data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
     $data->message = get_string('message', 'block_superframe');
     $data->url = new moodle_url('/blocks/superframe/view.php', ['blockid' => $blockid]);
     $data->text = get_string('viewlink', 'block_superframe');
@@ -82,6 +87,11 @@ class block_superframe_renderer extends plugin_renderer_base {
     // Add a link to the tablemanager
     $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
     $data->tabletext = get_string('tabletext', 'block_superframe');
+    //Added in week 7
+    $name = $USER->firstname . ' ' . $USER->lastname;
+    $data->welcome = get_string('welcomeuser', 'block_superframe', $name);
+    $this->page->requires->js_call_amd('block_superframe/test_amd', 'init', ['name' => $name]);
+    $data->headingclass = 'block_superframe_heading';
     // render
     return $this->render_from_template('block_superframe/blockcontent', $data);
     //if (has_capability('block/superframe:seeviewpage', $context)) {
