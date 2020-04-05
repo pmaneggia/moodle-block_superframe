@@ -76,3 +76,6 @@ $string['tabletext'] = 'Table editing';
 $string['userlink'] = 'Installed blocks';
 
 $string['about'] = 'Superframe with modal element, week 7';
+
+//Events, week 8
+$string['pageviewed'] = 'Superframe page viewed';

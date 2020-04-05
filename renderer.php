@@ -74,8 +74,8 @@ class block_superframe_renderer extends plugin_renderer_base {
         echo $this->output->footer();
    }
 
-  function fetch_block_content($blockid) {
-    global $USER;
+  function fetch_block_content($blockid, $courseid) {
+    global $USER, $DB; 
     $data = new stdClass();
     //$data->welcome = get_string('welcomeuser', 'block_superframe', $USER);
     $data->message = get_string('message', 'block_superframe');
@@ -87,11 +87,16 @@ class block_superframe_renderer extends plugin_renderer_base {
     // Add a link to the tablemanager
     $data->tableurl = new moodle_url('/blocks/superframe/tablemanager.php');
     $data->tabletext = get_string('tabletext', 'block_superframe');
-    //Added in week 7
+    // Added in week 7
     $name = $USER->firstname . ' ' . $USER->lastname;
     $data->welcome = get_string('welcomeuser', 'block_superframe', $name);
     $this->page->requires->js_call_amd('block_superframe/test_amd', 'init', ['name' => $name]);
     $data->headingclass = 'block_superframe_heading';
+    // Added in week 8 - last access
+    $lastaccess = $DB->get_record('user_lastaccess', ['courseid' => $courseid, 'userid' => $USER->id], '*', MUST_EXIST)->timeaccess;
+    $date = new DateTime();
+    $date->setTimestamp($lastaccess);
+    $data->datelastaccess = $date->format('d. M, Y H:i:s') . "\n";
     // render
     return $this->render_from_template('block_superframe/blockcontent', $data);
     //if (has_capability('block/superframe:seeviewpage', $context)) {

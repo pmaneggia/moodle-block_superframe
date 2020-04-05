@@ -15,7 +15,8 @@ $PAGE->set_url('/blocks/superframe/view.php'); // I want to do it with the new u
 // prevent guest users (actually any users without permission) to see the page
 require_login();
 $context = context_system::instance(); // require_capability needs a context
-require_capability('block/superframe:seeviewpage', $context);
+//deleted temprarily to test Week 8 event, should be used instead!
+//require_capability('block/superframe:seeviewpage', $context);
 
 // Week 8, events
 // If we get here they have viewed the page.
